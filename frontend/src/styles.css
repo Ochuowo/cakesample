@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.appBar {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: rgb(250, 17, 17);
+}
+
+.brand-title {
+    font-size: 1.5rem;
+    margin: .5rem;
+}
+
+.appBar-links {
+    height: 100%;
+}
+
+.appBar-links ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.appBar-links li {
+    list-style: none;
+}
+
+.appBar-links li a {
+    display: block;
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+}
+
+.appBar-links li:hover {
+    background-color: #555;
+}
+
+.toggle-button {
+    position: absolute;
+    top: .75rem;
+    right: 1rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+@media (max-width: 800px) {
+    .appBar {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+    .appBar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .appBar-links ul {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .appBar-links ul li {
+        text-align: center;
+    }
+
+    .appBar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .appBar-links.active {
+        display: flex;
+    }
+}

@@ -1,0 +1,206 @@
+html {
+  box-sizing: border-box;
+}
+
+*, *::after, *::before {
+  box-sizing: inherit;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.menu {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 250ms ease;
+  cursor: pointer;
+  z-index: 200;
+}
+.menu span {
+  position: relative;
+  display: block;
+  width: 50%;
+  height: 2px;
+  background-color: #444;
+  float: left;
+  transform-origin: center center;
+  transition: transform 250ms ease;
+  z-index: 200;
+}
+.menu span:nth-of-type(1) {
+  transform: translateY(-5px);
+}
+.menu span:nth-of-type(3) {
+  transform: translateY(5px);
+}
+
+#menu {
+  display: none;
+}
+#menu:checked ~ .menu {
+  background-color: transparent;
+  transform: rotate(360deg);
+  transition: transform 250ms ease;
+}
+#menu:checked ~ .menu span {
+  background-color: white;
+  transition: transform 250ms ease;
+}
+#menu:checked ~ .menu span:nth-of-type(1) {
+  transform: translateY(1px) rotate(45deg);
+}
+#menu:checked ~ .menu span:nth-of-type(2) {
+  display: none;
+}
+#menu:checked ~ .menu span:nth-of-type(3) {
+  transform: translateY(-1px) rotate(-45deg);
+}
+#menu:checked ~ .nav {
+  left: 0px;
+  transition: left 500ms ease;
+}
+#menu:checked ~ main {
+  transform: translateX(250px);
+  transition: transform 500ms ease;
+}
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: -300px;
+  width: 300px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background-color: #2c3e50;
+  transition: left 500ms ease;
+  z-index: 0;
+}
+.nav ul {
+  position: relative;
+  list-style-type: none;
+  margin: 100px 0;
+  padding: 0;
+}
+.nav ul li {
+  position: relative;
+  display: block;
+  border-bottom: 5px solid white;
+}
+.nav ul li a {
+  position: relative;
+  display: block;
+  margin: 0;
+  padding: 15px 20px;
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.nav ul li a:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: width 250ms ease;
+  z-index: -1;
+}
+.nav ul li a:hover {
+  color: #444;
+}
+.nav ul li a:hover:before {
+  width: 100%;
+  height: 100%;
+  background-color: white;
+  transition: width 250ms ease;
+}
+
+main {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transform: translateX(0px);
+  transition: transform 500ms ease;
+  z-index: 0;
+}
+
+@media screen and (max-width: 450px) {
+  button.remember-password {
+      font-size: 0.8rem;
+  }
+  .tabs .tab,
+  .tabs label {
+    order: initial;
+  }
+  .tabs label {
+    width: 100%;
+    margin-right: 0;
+    margin-top: 0.5rem;
+  }
+  .navpill {
+    flex-direction: column;
+    align-items: flex-start;
+    cursor: pointer;
+    transform: background ease 0.5s;
+    border-radius: 10px 10px 10px 10px;
+  }
+
+.burger {
+  display: block;
+  }
+
+.navpill-links {
+    display: none;
+    width: 50%;
+    background-color: #333;
+  }
+
+.navpill-links li {
+  list-style: none;
+  opacity: 0;
+}
+
+.navpill-links ul {
+    width: 30%;
+    flex-direction: column;
+}
+
+.navpill-links ul li {
+    text-align: center;
+}
+
+.navpill-links ul li a {
+    padding: .5rem 1rem;
+}
+
+.navpill-links.active {
+    display: flex;
+}
+
+@keyframes navLinkFade{
+  from{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to{
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+}
