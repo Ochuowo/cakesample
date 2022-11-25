@@ -1,0 +1,32 @@
+{
+	"name": "Cakes.Co.Ke Ecommerce",
+	"short_name": "Cakes.Co.Ke",
+	"start_url": "/",
+	"icons": [
+		{
+			"src": "https://res.cloudinary.com/dvoxvtuub/image/upload/v1663414838/cakeslogo-removebgi_s5sjmr_bnw11r.png",
+			"sizes": "16x16",
+			"type": "image/png"
+		},
+		{
+			"src": "https://res.cloudinary.com/dvoxvtuub/image/upload/v1663414774/cakeslogo-removebgi_s5sjmr_zgkcmc.png",
+			"sizes": "32x32",
+			"type": "image/png"
+		},
+		{
+			"src": "https://res.cloudinary.com/dvoxvtuub/image/upload/v1663414707/cakeslogo-removebgi_s5sjmr_xckloe.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "https://res.cloudinary.com/dvoxvtuub/image/upload/v1663414620/cakeslogo-removebgi_s5sjmr_xkazpa.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#2c3e50",
+	"orientation": "portrait",
+	"background_color": "#dee2e6",
+	"display": "standalone",
+	"description": "An E-commerce app to buy the best products at the lowest prices! Built by Rajat"
+}

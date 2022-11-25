@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.71aee984.chunk.css",
+    "main.js": "/static/js/main.e8c01093.chunk.js",
+    "main.js.map": "/static/js/main.e8c01093.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3a7ce6c9.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3a7ce6c9.js.map",
+    "static/js/2.58f854f6.chunk.js": "/static/js/2.58f854f6.chunk.js",
+    "static/js/2.58f854f6.chunk.js.map": "/static/js/2.58f854f6.chunk.js.map",
+    "index.html": "/index.html",
+    "service-worker.js": "/service-worker.js",
+    "service-worker.js.LICENSE.txt": "/service-worker.js.LICENSE.txt",
+    "service-worker.js.map": "/service-worker.js.map",
+    "static/css/main.71aee984.chunk.css.map": "/static/css/main.71aee984.chunk.css.map",
+    "static/js/2.58f854f6.chunk.js.LICENSE.txt": "/static/js/2.58f854f6.chunk.js.LICENSE.txt",
+    "static/media/404Error.0ed04e00.png": "/static/media/404Error.0ed04e00.png",
+    "static/media/googleLogo.0590aaf0.png": "/static/media/googleLogo.0590aaf0.png",
+    "static/media/twitterLogo.f963dcac.png": "/static/media/twitterLogo.f963dcac.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.3a7ce6c9.js",
+    "static/js/2.58f854f6.chunk.js",
+    "static/css/main.71aee984.chunk.css",
+    "static/js/main.e8c01093.chunk.js"
+  ]
+}
