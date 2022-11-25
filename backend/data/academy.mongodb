@@ -1,0 +1,87 @@
+// MongoDB Playground
+// To disable this template go to Settings | MongoDB | Use Default Template For Playground.
+// Make sure you are connected to enable completions and to be able to run a playground.
+// Use Ctrl+Space inside a snippet or a string literal to trigger completions.
+
+// Select the database to use.
+use("test");
+
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+db.lessons.drop();
+db.students.drop();
+db.teachers.drop();
+db.subjects.drop();
+
+// Insert a few documents into the db collections.
+
+db.lessons.insertMany([
+  { "name": "topchef", "description":
+			"Our beginners class is one of the most popular around, come see for yourself",
+		"price": 29000,
+		"studentsInLesson": 14,
+		"rating": 5.0,
+		"numReviews": 13 },
+  { "name": "pasteries", "description":
+			"Our beginners class is one of the most popular around, come see for yourself",
+		"price": 22000,
+		"studentsInLesson": 10,
+		"rating": 4.5,
+		"numReviews": 11 },
+  { "name": "decorations", "description":
+			"Our beginners class is one of the most popular around, come see for yourself",
+		"price": 19000,
+		"studentsInLesson": 20,
+		"rating": 2.5,
+		"numReviews": 8 },
+  { "name": "master sous-chef", "description":
+			"Our beginners class is one of the most popular around, come see for yourself",
+		"price": 19000,
+		"studentsInLesson": 21,
+		"rating": 5.0,
+		"numReviews": 7 },
+  { "name": "baby class", "description":
+			"Our beginners class is one of the most popular around, come see for yourself",
+		"price": 8500,
+		"studentsInLesson": 14,
+		"rating": 3.7,
+		"numReviews": 12 },
+]);
+
+db.students.insertMany([
+  { "firstName": "argwings", "lastName": "kodhek", "email": "argwings@kodhek.com", "age": 53, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "tom", "lastName": "mboya", "email": "tom@mboya.com", "age": 44, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "robert", "lastName": "ouko", "email": "robert@ouko.com", "age": 55, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "luanda", "lastName": "magere", "email":  "luanda@magere.com", "age": 35, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "abbas", "lastName": "magogo", "email": "abbas@magogo.com", "age": 38, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
+]);
+
+db.teachers.insertMany([
+  { "firstName": "argwings", "lastName": "kodhek", "email": "argwings@kodhek.com", "age": 53, "gender": "male", "salary": 5000, "subjectId": "637c7c68e881901c9c4739b9", "JoinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "tom", "lastName": "mboya", "email": "tom@mboya.com", "age": 44, "gender": "male", "salary": 7000,  "subjectId": "637c7c68e881901c9c4739b9", "JoinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "robert", "lastName": "ouko", "email": "robert@ouko.com", "age": 55, "gender": "male", "salary": 16000,  "subjectId": "637c7c68e881901c9c4739ba", "JoinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "luanda", "lastName": "magere", "email":  "luanda@magere.com", "age": 35, "gender": "male", "salary": 8000,  "subjectId": "637c7c68e881901c9c4739ba", "JoinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "abbas", "lastName": "magogo", "email": "abbas@magogo.com", "age": 38, "gender": "male", "salary": 9000,  "subjectId": "637c7c68e881901c9c4739bb", "JoinedAt": "2017-03-01T08:00:00Z" },
+]);
+
+db.subjects.insertMany([
+  { "name": "kitchen preps" },
+  { "name": "ingridient mixing" },
+  { "name": "customer tailoring" },
+  { "name": "special orders" },
+  { "name": "after-sales service" },
+]);
+
+// Run a find command to view items sold on April 4th, 2014.
+//db.shop.find({ date: { $gte: new Date("2014-04-04"), $lt: new Date("2014-04-05") } });
+
+// Build an aggregation to view total shop for each product in 2014.
+// const aggregation = [
+//   { $match: { date: { $gte: new Date("2014-01-01"), $lt: new Date("2015-01-01") } } },
+//   { $group: { _id: "$item", totalSaleAmount: { $sum: { $multiply: [ "$price", "$quantity" ] } } } }
+// ];
+
+// Run the aggregation and open a cursor to the results.
+// Use toArray() to exhaust the cursor to return the whole result set.
+// You can use hasNext()/next() to iterate through the cursor page by page.
+//db.shop.aggregate(aggregation);
