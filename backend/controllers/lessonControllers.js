@@ -1,5 +1,5 @@
 import asyncHandler from 'express-async-handler';
-import Lessons from '../models/lessonModel.js';
+import Lesson from '../models/lessonModel.js';
 
 // @desc fetch all the lessons
 // @route GET /api/lessons
@@ -17,11 +17,11 @@ const getAllLessons = asyncHandler(async (req, res) => {
 				},
 		  }
 		: {};
-	const count = await Lessons.countDocuments({ ...keyword }); // total number of lessons which match with the given key
+	const count = await Lesson.countDocuments({ ...keyword }); // total number of lessons which match with the given key
 
 	// find all lessons that need to be sent for the current page, by skipping the documents included in the previous pages
 	// and limiting the number of documents included in this request
-	const lessons = await Lessons.find({ ...keyword })
+	const lessons = await Lesson.find({ ...keyword })
 		.limit(pageSize)
 		.skip(pageSize * (page - 1));
 
@@ -33,7 +33,7 @@ const getAllLessons = asyncHandler(async (req, res) => {
 // @route GET /api/lessons/:id
 // @access PUBLIC
 const getLessonById = asyncHandler(async (req, res) => {
-	const lesson = await Lessons.findById(req.params.id);
+	const lesson = await Lesson.findById(req.params.id);
 	if (lesson) res.json(lesson);
 	else {
 		// throw a custom error so that our error middleware can catch them and return apt json
@@ -46,7 +46,7 @@ const getLessonById = asyncHandler(async (req, res) => {
 // @route DELETE /api/lessons/:id
 // @access PRIVATE/ADMIN
 const deleteLesson = asyncHandler(async (req, res) => {
-	const lesson = await Lessons.findById(req.params.id);
+	const lesson = await Lesson.findById(req.params.id);
 	if (lesson) {
 		await lesson.remove();
 		res.json({ message: 'Lesson removed from DB' });
@@ -62,12 +62,12 @@ const deleteLesson = asyncHandler(async (req, res) => {
 // @access PRIVATE/ADMIN
 const createLesson = asyncHandler(async (req, res) => {
 	// create a dummy lesson which can be edited later
-	const lesson = new Lessons({
+	const lesson = new Lesson({
 		name: 'Sample',
 		description:
 			'Here is where we separate the ranks. Professional lessons are for those who wish to be above the rest. Is it you, number one?',
 		price: 40000,
-		studentsInLesson: 9,
+		studentsInLesson: 0,
 		rating: 7.0,
 		numReviews: 21,
 	});
@@ -88,7 +88,7 @@ const updateLesson = asyncHandler(async (req, res) => {
 		numReviews,
 	} = req.body;
 	we
-	const lesson = await Lessons.findById(req.params.id);
+	const lesson = await Lesson.findById(req.params.id);
 
 	// update the fields which are sent with the payload
 	if (lesson) {
@@ -112,7 +112,7 @@ const updateLesson = asyncHandler(async (req, res) => {
 // @access PRIVATE
 const createLessonReview = asyncHandler(async (req, res) => {
 	const { rating, review } = req.body;
-	const lesson = await Lessons.findById(req.params.id);
+	const lesson = await Lesson.findById(req.params.id);
 	if (lesson) {
 		// If the user has already reviewed this lesson, throw an error
 		const reviewedAlready = lesson.reviews.find(
@@ -150,7 +150,7 @@ const createLessonReview = asyncHandler(async (req, res) => {
 // @access PUBLIC
 const getTopLessons = asyncHandler(async (req, res) => {
 	// get top 4 rated lessons
-	const topLessons = await Lessons.find({}).sort({ rating: -1 }).limit(4);
+	const topLessons = await Lesson.find({}).sort({ rating: -1 }).limit(4);
 	res.json(topLessons);
 });
 

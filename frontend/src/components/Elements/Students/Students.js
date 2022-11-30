@@ -5,7 +5,7 @@ import Intro from '../../Intro/Intro';
 import ControlsBar from '../../ControlsBar/ControlsBar';
 import MyTable from '../../Table/MyTable';
 
-export default class Students extends Component {
+class Students extends Component {
 	state = {
 		loading: false,
 		students: null,
@@ -17,7 +17,7 @@ export default class Students extends Component {
 	getStudents = async () => {
 		try {
 			this.setState({ loading: true });
-			const res = await axios.get(`api/students`);
+			const res = await axios.get('api/students');
 			this.setState({ loading: false, students: res.data.students });
 		} catch (error) {
 			console.log(error);
@@ -28,7 +28,7 @@ export default class Students extends Component {
 	};
 
 	goToAdd = () => {
-		this.props.history.push(`/Students/Add`);
+		this.props.history.push('/Students/Add');
 	};
 
 	goToEdit = studentId => {
@@ -53,14 +53,14 @@ export default class Students extends Component {
 		this.setState({ lessonId: e.target.value });
 	};
 
-	addStudentToClassHandler = async (e, studentId) => {
+	addStudentToLessonHandler = async (e, studentId) => {
 		e.preventDefault();
 		this.setState({ loading: true });
 		// get the lessonId from the state
 		const lessonId = this.state.lessonId;
 		try {
 			const body = { lessonId: lessonId, studentId: studentId };
-			await axios.patch(`api/lesson/addStudent`, body);
+			await axios.patch('api/lesson/addStudent', body);
 			this.getStudents();
 		} catch (error) {
 			alert(error.response.data.error);
@@ -68,9 +68,9 @@ export default class Students extends Component {
 		}
 	};
 
-	getClassesForSelecting = async () => {
+	getLessonesForSelecting = async () => {
 		try {
-			const res = await axios.get(`api/lessons`);
+			const res = await axios.get('api/lessons');
 			this.setState({ lessons: res.data.lessons });
 		} catch (error) {
 			alert('error');
@@ -90,7 +90,7 @@ export default class Students extends Component {
 			console.log(response.data.students);
 
 			if (response.data.students.length < 1) {
-				return alert('Student Not Found!');
+				return alert('Students Not Found!');
 			}
 			this.setState({ students: response.data.students });
 		} catch (error) {
@@ -100,10 +100,9 @@ export default class Students extends Component {
 	};
 
 	componentDidMount() {
-		this.getClassesForSelecting();
+		this.getLessonesForSelecting();
 		this.getStudents();
 	}
-	
 	render() {
 		return (
 			<div>
@@ -119,7 +118,7 @@ export default class Students extends Component {
 					<MyTable
 						lessonId={this.state.lessonId}
 						lessons={this.state.lessons}
-						addStudentToClass={this.addStudentToClassHandler}
+						addStudentToLesson={this.addStudentToLessonHandler}
 						lessonChangeHandler={this.lessonChangeHandler}
 						students={true}
 						view={true}
@@ -137,3 +136,5 @@ export default class Students extends Component {
 		);
 	}
 }
+
+export default Students;

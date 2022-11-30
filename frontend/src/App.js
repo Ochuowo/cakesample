@@ -19,7 +19,11 @@ import PasswordResetPage from './pages/PasswordResetPage';
 import UserListPage from './pages/UserListPage';
 import UserEditPage from './pages/UserEditPage';
 import ProductListPage from './pages/ProductListPage';
+import LessonListPage from './pages/LessonListPage';
+import StudentListPage from './pages/StudentListPage';
 import ProductEditPage from './pages/ProductEditPage';
+import LessonEditPage from './pages/LessonEditPage';
+import StudentEditPage from './pages/StudentEditPage';
 import OrderListPage from './pages/OrderListPage';
 import ErrorPage from './pages/ErrorPage';
 import axios from 'axios';
@@ -46,7 +50,6 @@ import ClassDetails from './components/Details/ClassDetails';
 // students
 import Students from './components/Elements/Students/Students';
 import AddStudent from './components/Add/AddStudent';
-import EditStudent from './components/Edit/EditStudent';
 import StudentDetails from './components/Details/StudentDetails';
 // Layout
 import Layout from './components/Layout/Layout';
@@ -184,7 +187,7 @@ const App = () => {
                             path='/Teachers/Details/:teacherId' 
                             component={PersonDetails}
                             />
-                        {/* classes */}
+                        {/* lessons */}
                         <Route 
                             path='/Lessons'
                             component={Lessons}
@@ -205,6 +208,16 @@ const App = () => {
 							component={ClassDetails}
 							exact
                  	        />
+						<Route
+							path='/Lesson/lessonlist'
+							component={LessonListPage}
+							exact
+						/>
+						<Route
+							path='/Lessons/Edit/:lessonId'
+							component={LessonEditPage}
+							exact
+						/>
                  		{/* Students */}
                  		<Route 
 							path='/Students' 
@@ -217,13 +230,18 @@ const App = () => {
 							exact 
                  	        />
                  		<Route 
-							path='/Students/Edit/:studentId' 
-							component={EditStudent}
+							path='/Students/Edit/:studentId'
+							component={StudentEditPage}
                  	        />
                  		<Route 
 							path='/Students/Details/:studentId' 
 							component={StudentDetails}
                  	        />
+						<Route
+							path='/Student/studentlist'
+							component={StudentListPage}
+							exact
+						/>
 						{/* unknown url  */}
 						<Route component={NotFound} />
 					</Switch>

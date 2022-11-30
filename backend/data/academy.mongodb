@@ -49,19 +49,19 @@ db.lessons.insertMany([
 ]);
 
 db.students.insertMany([
-  { "firstName": "argwings", "lastName": "kodhek", "email": "argwings@kodhek.com", "age": 53, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
-  { "firstName": "tom", "lastName": "mboya", "email": "tom@mboya.com", "age": 44, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
-  { "firstName": "robert", "lastName": "ouko", "email": "robert@ouko.com", "age": 55, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
-  { "firstName": "luanda", "lastName": "magere", "email":  "luanda@magere.com", "age": 35, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
-  { "firstName": "abbas", "lastName": "magogo", "email": "abbas@magogo.com", "age": 38, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "JoinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "argwings", "lastName": "kodhek", "email": "argwings@kodhek.com", "age": 53, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "joinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "tom", "lastName": "mboya", "email": "tom@mboya.com", "age": 44, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "joinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "robert", "lastName": "ouko", "email": "robert@ouko.com", "age": 55, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "joinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "luanda", "lastName": "magere", "email":  "luanda@magere.com", "age": 35, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "joinedAt": "2014-03-01T08:00:00Z" },
+  { "firstName": "abbas", "lastName": "magogo", "email": "abbas@magogo.com", "age": 38, "gender": "male", "lessonId": "637c7c68e881901c9c4739ab", "joinedAt": "2014-03-01T08:00:00Z" },
 ]);
 
 db.teachers.insertMany([
-  { "firstName": "argwings", "lastName": "kodhek", "email": "argwings@kodhek.com", "age": 53, "gender": "male", "salary": 5000, "subjectId": "637c7c68e881901c9c4739b9", "JoinedAt": "2017-03-01T08:00:00Z" },
-  { "firstName": "tom", "lastName": "mboya", "email": "tom@mboya.com", "age": 44, "gender": "male", "salary": 7000,  "subjectId": "637c7c68e881901c9c4739b9", "JoinedAt": "2017-03-01T08:00:00Z" },
-  { "firstName": "robert", "lastName": "ouko", "email": "robert@ouko.com", "age": 55, "gender": "male", "salary": 16000,  "subjectId": "637c7c68e881901c9c4739ba", "JoinedAt": "2017-03-01T08:00:00Z" },
-  { "firstName": "luanda", "lastName": "magere", "email":  "luanda@magere.com", "age": 35, "gender": "male", "salary": 8000,  "subjectId": "637c7c68e881901c9c4739ba", "JoinedAt": "2017-03-01T08:00:00Z" },
-  { "firstName": "abbas", "lastName": "magogo", "email": "abbas@magogo.com", "age": 38, "gender": "male", "salary": 9000,  "subjectId": "637c7c68e881901c9c4739bb", "JoinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "argwings", "lastName": "kodhek", "email": "argwings@kodhek.com", "age": 53, "gender": "male", "salary": 5000, "subjectId": "637c7c68e881901c9c4739b9", "joinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "tom", "lastName": "mboya", "email": "tom@mboya.com", "age": 44, "gender": "male", "salary": 7000,  "subjectId": "637c7c68e881901c9c4739b9", "joinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "robert", "lastName": "ouko", "email": "robert@ouko.com", "age": 55, "gender": "male", "salary": 16000,  "subjectId": "637c7c68e881901c9c4739ba", "joinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "luanda", "lastName": "magere", "email":  "luanda@magere.com", "age": 35, "gender": "male", "salary": 8000,  "subjectId": "637c7c68e881901c9c4739ba", "joinedAt": "2017-03-01T08:00:00Z" },
+  { "firstName": "abbas", "lastName": "magogo", "email": "abbas@magogo.com", "age": 38, "gender": "male", "salary": 9000,  "subjectId": "637c7c68e881901c9c4739bb", "joinedAt": "2017-03-01T08:00:00Z" },
 ]);
 
 db.subjects.insertMany([
