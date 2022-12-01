@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Row, Col, ListGroup, Image, Card, Button, ListGroupItem } from 'react-bootstrap';
+import { Row, Col, ListGroup, Image, Card, Button, ListGroupItem, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { PayPalButton } from 'react-paypal-button-v2'; // for paypal payments
 import axios from 'axios';
@@ -23,7 +23,6 @@ import CheckoutForm from '../components/CheckoutForm'; //stripe checkout form
 import getDateString from '../utils/getDateString';
 import asyncHandler from 'express-async-handler';
 import dotenv from 'dotenv';
-import { TextField } from '@material-ui/core';
 
 dotenv.config();
 
@@ -32,6 +31,7 @@ const OrderPage = ({ match, history }) => {
 	const stripePromise = loadStripe(
 		process.env.REACT_APP_STRIPE_PUBLISHABLE_KEY
 	);
+
 	// for paypal payment
 	const [SDKReady, setSDKReady] = useState(false);
 	const dispatch = useDispatch();
@@ -51,6 +51,8 @@ const OrderPage = ({ match, history }) => {
 
 	const userDetails = useSelector((state) => state.userDetails);
 	const { error: userLoginError } = userDetails;
+
+	const [deposit, setDeposit] = useState(0);
 	
 
 	// for Lipa Na Mpesa payments. Client pays 50% upfront, then 50% upon dispatch.
@@ -154,6 +156,23 @@ const OrderPage = ({ match, history }) => {
 	const successDeliveryHandler = () => {
 		dispatch(deliverOrder(orderID));
 	};
+
+	// const totalPaid = () => {
+
+	// 	order.totalPaid = prompt("Enter deposit amount");
+
+	// 	if ( order.totalPaid === null ){
+	// 		alert("Deposit amount required!");
+	// 	} else {
+	// 		order.totalPaid = parseInt(order.totalPaid);
+	// 		if( isNaN(order.totalPaid)) {
+	// 			alert("Invalid Entry! Please enter amount correctly!");
+	// 		} else if(order.totalPaid >= order.totalPrice || order.totalPaid <= 0 ) {
+	// 			alert("You entered incorrect amount");
+	// 		}
+	// 			alert("Operation Failed!!!");
+	// 	}
+	// };
 
 
 	return loading ? (
@@ -376,11 +395,13 @@ const OrderPage = ({ match, history }) => {
 												<strong>Amount Paid</strong>
 											</Col>
 											<Col>
-												<TextField
-												controlId="amountPaid"
-												name="totalPaid"
-												placeholder='Enter deposited Amount'
-												type='number'
+												<Form.Control
+														size='lg'
+														placeholder='Enter Deposit Amount'
+														type='number'
+														value={deposit}
+														required
+														onChange={(e) => setDeposit(e.target.value)}
 												/>
 											</Col>
 										</Row>
@@ -392,7 +413,7 @@ const OrderPage = ({ match, history }) => {
 											</Col>
 											<Col>
 												{Number
-													(order.totalPrice / 2).toLocaleString(
+													(order.totalPrice - deposit).toLocaleString(
 														'en-UK',
 														{
 															maximumFractionDigits: 2,

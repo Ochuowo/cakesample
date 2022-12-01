@@ -58,6 +58,8 @@ import NotFound from './components/NotFound/NotFound';
 // for showing the 'new update available' banner and to register the service worker
 import ServiceWorkerWrapper from './ServiceWorkerWrapper';
 
+import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+
 axios.defaults.baseURL = 'http://localhost:5000/';
 
 const App = () => {
@@ -245,6 +247,15 @@ const App = () => {
 						{/* unknown url  */}
 						<Route component={NotFound} />
 					</Switch>
+					<div>
+					<FloatingWhatsApp
+					phoneNumber="+254723925531"
+					accountName="CakesSample"
+					allowEsc
+					allowClickAway
+					notification
+					notificationSound/>
+					</div>
 				</Container>
 			</main>
 			<Footer/>
